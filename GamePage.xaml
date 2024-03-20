@@ -1,0 +1,60 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DC3.GamePage"
+             Title="GamePage">
+
+    <StackLayout>
+        <ProgressBar Progress="{Binding Player.Health}" ProgressColor="Red"/>
+
+        <AbsoluteLayout x:Name="GameLayout">
+
+            <BoxView x:Name="PlayerBox" 
+                 AbsoluteLayout.LayoutBounds="{Binding Player.Bounds}" 
+                 Color="{Binding Player.Color}" />
+
+
+            <BoxView x:Name="AttackBox" AbsoluteLayout.LayoutBounds="{Binding Player.CurrentAttack.Bounds}" Color="{Binding Player.CurrentAttack.Color}"  />
+            <Label Text="{Binding Enemies.Length, StringFormat='Enemies Left: {0}'}"/>
+        </AbsoluteLayout>
+    </StackLayout>
+    <ContentPage.MenuBarItems>
+
+        <MenuBarItem Text="{Binding Level, StringFormat='Level: {0}'}">
+            <MenuFlyoutItem Text="Cut"
+                Clicked="OnUpButtonClicked">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                             Key="W" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="Cut"
+                Clicked="OnDownButtonClicked">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                             Key="S" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="Cut"
+                Clicked="OnRightButtonClicked">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                             Key="D" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="Cut"
+                Clicked="OnLeftButtonClicked">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                             Key="A" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="Cut"
+    Clicked="OnAttackButtonClicked">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                 Key="H" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+</ContentPage>
